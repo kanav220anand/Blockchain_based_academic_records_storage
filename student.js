@@ -34,7 +34,7 @@ http.createServer(function (req, res) {
     var selectQuery = 'SELECT * FROM student_data where firstname = ? AND hashvalue = ? ';
     console.log(selectQuery);
    connection.query(selectQuery, [firstname1,key1],function (err, result) {
-    if (err) throw err;
+    //if (err) throw err;
     var cert = result[0].certificate;
     var buffer1 = new Buffer( cert );
     var firstname1 = result[0].firstname;
@@ -52,8 +52,8 @@ http.createServer(function (req, res) {
 });
 } else {
    res.writeHead(200, {'Content-Type': 'text/html'});
-   res.write('<body style="background-color:#E6E6FA">');
-   res.write('<font size="7" color="#FF4500">Syracuse University</font><br><br>');
+   res.write('<body style="background-color:#FF4500">');
+  // res.write('<font size="7" color="#FF4500">MIET</font><br><br>');
    res.write('<font size="6" color="black">Verify Student Academic Records</font>');
    res.write('<form action="filedownload" method="post" enctype="multipart/form-data">');
    res.write('<label for="uname"><b>First Name</b></label> <input type="text" placeholder="Enter First Name" name="firstname" id="firstname" required><br><br>');

@@ -31,10 +31,10 @@ http.createServer( function (req, res) {
       var firstname1 = fields.firstname;
       var lastname1 = fields.lastname;
       //res.write(newpath);
-      fs.rename(oldpath, newpath, function (err) {
-        if (err) throw err;
-        res.write('<br><br>Certificate Uploaded!');
-      });
+      // fs.rename(oldpath, newpath, function (err) {
+      //   if (err) throw err;
+      //   res.write('<br><br>Certificate Uploaded!');
+      // });
 
       var buffer = fs.readFileSync(newpath);
       setDefaultAccount();
@@ -65,8 +65,8 @@ http.createServer( function (req, res) {
 });
 } else {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<body style="background-color:#E6E6FA">');
-    res.write('<font size="7" color="#FF4500">Syracuse University</font><br><br>');
+    res.write('<body style="background-color:#FF4500">');
+    //res.write('<font size="7" color="#FF4500">MIET</font><br><br>');
     res.write('<font size="6" color="black">Verify Student Academic Records</font>');
     res.write('<form style="background-color:#E6E6FA" action="fileupload" method="post" enctype="multipart/form-data">');
     res.write('<label for="uname"><b>First Name</b></label> <input type="text" placeholder="Enter First Name" name="firstname" id="firstname" required><br><br>');
